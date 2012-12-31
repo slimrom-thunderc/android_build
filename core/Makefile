@@ -60,24 +60,24 @@ endif
 
 # -----------------------------------------------------------------
 # default.prop
-INSTALLED_DEFAULT_PROP_TARGET := $(TARGET_ROOT_OUT)/default.prop
-ALL_DEFAULT_INSTALLED_MODULES += $(INSTALLED_DEFAULT_PROP_TARGET)
-ADDITIONAL_DEFAULT_PROPERTIES := \
-    $(call collapse-pairs, $(ADDITIONAL_DEFAULT_PROPERTIES))
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    $(call collapse-pairs, $(PRODUCT_DEFAULT_PROPERTY_OVERRIDES))
-ADDITIONAL_DEFAULT_PROPERTIES := $(call uniq-pairs-by-first-component, \
-    $(ADDITIONAL_DEFAULT_PROPERTIES),=)
+#INSTALLED_DEFAULT_PROP_TARGET := $(TARGET_ROOT_OUT)/default.prop
+#ALL_DEFAULT_INSTALLED_MODULES += $(INSTALLED_DEFAULT_PROP_TARGET)
+#ADDITIONAL_DEFAULT_PROPERTIES := \
+#    $(call collapse-pairs, $(ADDITIONAL_DEFAULT_PROPERTIES))
+#ADDITIONAL_DEFAULT_PROPERTIES += \
+#    $(call collapse-pairs, $(PRODUCT_DEFAULT_PROPERTY_OVERRIDES))
+#ADDITIONAL_DEFAULT_PROPERTIES := $(call uniq-pairs-by-first-component, \
+#    $(ADDITIONAL_DEFAULT_PROPERTIES),=)
 
-$(INSTALLED_DEFAULT_PROP_TARGET):
-	@echo Target buildinfo: $@
-	@mkdir -p $(dir $@)
-	$(hide) echo "#" > $@; \
-	        echo "# ADDITIONAL_DEFAULT_PROPERTIES" >> $@; \
-	        echo "#" >> $@;
-	$(hide) $(foreach line,$(ADDITIONAL_DEFAULT_PROPERTIES), \
-		echo "$(line)" >> $@;)
-	build/tools/post_process_props.py $@
+#$(INSTALLED_DEFAULT_PROP_TARGET):
+#	@echo Target buildinfo: $@
+#	@mkdir -p $(dir $@)
+#	$(hide) echo "#" > $@; \
+#	        echo "# ADDITIONAL_DEFAULT_PROPERTIES" >> $@; \
+#	        echo "#" >> $@;
+#	$(hide) $(foreach line,$(ADDITIONAL_DEFAULT_PROPERTIES), \
+#		echo "$(line)" >> $@;)
+#	build/tools/post_process_props.py $@
 
 # -----------------------------------------------------------------
 # build.prop
